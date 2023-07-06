@@ -75,9 +75,30 @@ def prompt_test():
         st.warning("Not enough words to summarize!")
 
 
+def sum_obsidian():
+    # Create Text Area Widget to enable user to enter texts
+    article_text = st.text_area(":blue[Enter your scientific texts to summarize]", key="obs")
+
+    # Create Radio Buttons
+    # output_size = st.radio(label=":blue[What kind of output do you want?]",
+    #                        options=["To-The-Point", "Concise", "Detailed"]
+    #                        )
+
+    if st.button("Generate Summary", type='primary', key='obs_key'):
+
+        # Use GPT-3 to generate a summary of the article
+        res = chat_sum(article_text)
+        st.success(res)
+        # Give user the option to download result
+        st.download_button('Download result', res)
+    else:
+        st.warning("Not enough words to summarize!")
+
+
 def main():
     page_init()
     prompt_test()
+    sum_obsidian()
 
 
 if __name__ == "__main__":
