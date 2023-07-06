@@ -4,9 +4,9 @@
 
 ```commandline
 pip install openai 
-pip langchain 
-pip treamlit 
-pip python-dotenv
+pip install langchain 
+pip install streamlit 
+pip install python-dotenv
 ```
 ```# pip install gsheetsdb```
 
